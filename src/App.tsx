@@ -1,21 +1,28 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Queens from "./Queens";
+import React, { useReducer, useMemo } from "react";
+import "./styles/App.css";
+
 import Card from "./Card";
+import { initialState, cardReducer } from "./ducks/reducer";
+import { reset } from "./ducks/actions";
+
+function useSelectors(reducer, mapStateToSelectors) {
+  const [state] = reducer;
+  const selectors = useMemo(() => mapStateToSelectors(state), [state]);
+  return selectors;
+}
 
 const App: React.FC = () => {
+  const [state, dispatch] = useReducer(cardReducer, initialState);
+  const cards = state.ids.map(name => state.byId[name]);
+  const handleClick = e => {
+    console.log(e);
+    dispatch(reset);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-
-        <p>
-          {Queens.map(i => (
-            <Card {...i} />
-          ))}
-        </p>
-      </header>
+    <div className="app">
+      {cards.map(cardData => (
+        <Card key={cardData.name} {...cardData} />
+      ))}
     </div>
   );
 };

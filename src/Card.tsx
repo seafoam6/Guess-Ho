@@ -1,15 +1,12 @@
 import React from "react";
+import "./styles/card.css";
 
-interface Queen {
-  name: string;
-  age: number;
-  city: string;
-  photo: string;
-}
-
-const Card = ({ name, age, city, photo }: Queen) => {
+const Card: React.FC<any> = ({ name, age, city, photo }) => {
   return (
-    <div className="Card">
+    <div
+      className="card"
+      onClick={e => console.log({ name, age, city, photo })}
+    >
       <h2 className="name">{name}</h2>
       <div className="city">{city}</div>
       <div className="age">{age}</div>
