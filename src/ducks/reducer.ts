@@ -18,7 +18,8 @@ export const initialState: {
 } = produce(base, draft => {
   const names = Object.keys(Queens);
   const shuffled = shuffle(names);
-  base.selected = Queens[shuffled[0]];
+  const rand = names[Math.floor(Math.random() * names.length)];
+  base.selected = Queens[rand];
   shuffled.forEach(name => {
     base.byId[name] = Queens[name];
     base.byId[name].active = true;
