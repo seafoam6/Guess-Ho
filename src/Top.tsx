@@ -8,7 +8,7 @@ const Top: React.FC<{ buttonClick: Function; selected: Queen }> = ({
 }) => (
   <header className="top">
     <h1>Guess Ho?</h1>
-    Your SECRET queen is: {selected.name}
+    Your SECRET queen is: <div className="name">{selected.name}</div>
     <div
       className="secret-box"
       style={{ backgroundImage: `url(./assets/${selected.photo})` }}
