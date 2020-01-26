@@ -24,17 +24,28 @@ const App: React.FC = () => {
     dispatch(reset());
   };
   return (
-    <div className="app">
-      <Top selected={selected} buttonClick={() => resetBoard()} />
-      {cards.map(cardData => (
-        <Card
-          key={cardData.name}
-          handleClick={() => handleClick(cardData.name)}
-          {...cardData}
-        />
-      ))}
-      {/* <Card {...cards[0]} handleClick={() => handleClick(cards[0].name)} /> */}
-    </div>
+    <>
+      <div className="app">
+        <Top selected={selected} buttonClick={() => resetBoard()} />
+        {cards.map(cardData => (
+          <Card
+            key={cardData.name}
+            handleClick={() => handleClick(cardData.name)}
+            {...cardData}
+          />
+        ))}
+        {/* <Card {...cards[0]} handleClick={() => handleClick(cards[0].name)} /> */}
+      </div>
+      <footer>
+        <p>
+          Made with love by <a href="https://stevebarman.com">Steve Barman</a>.{" "}
+          <a href="https://github.com/seafoam6/Guess-Ho">
+            Fork this project on Github
+          </a>
+          .
+        </p>
+      </footer>
+    </>
   );
 };
 
