@@ -22,14 +22,14 @@ const Card: React.FC<{
           handleClick();
         }}
       >
+        <div className="face back">
+          <h2> GUESS HO ? </h2>
+        </div>
         <div className="face front">
           <header>
             <h2 className="name">{name}</h2>
           </header>
           <img className="photo" src={`./assets/${photo}`} alt={name} />
-        </div>
-        <div className="face back">
-          <h2> GUESS HO ? </h2>
         </div>
       </div>
     </div>

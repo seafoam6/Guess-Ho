@@ -1,10 +1,45 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
 .top {
+  border: 1px solid red;
   width: 200px;
   height: 361px;
+  overflow-y: scroll;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  h1 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  .name {
+    margin-bottom: 0.3em;
+  }
   .secret-box {
     height: 200px;
-    width: 200px;
+    max-width: 200px;
     background-size: 200px;
+  }
+  .new-game {
+    margin-top: 10px;
+  }
+  .rules-button {
+    margin: 10px 0;
+  }
+  .rules {
+    font-style: italic;
+    font-size: 0.8em;
+    height: 0;
+    overflow: hidden;
+    transition: height 1s linear;
+    &.open {
+      height: auto;
+      transition: height 1s linear;
+    }
   }
   button {
     width: 100%;
